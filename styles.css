@@ -1,0 +1,167 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #111;
+    color: #fff;
+    margin: 0; /* แก้ไขจาก auto เป็น 0 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* เปลี่ยนจาก center เป็น flex-start */
+    min-height: 100vh; /* ให้พื้นที่เต็มจอ */
+    overflow-y: auto; /* ทำให้สามารถเลื่อนเนื้อหาลงได้ */
+}
+  
+  h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 3rem;
+    color: #ff6600;
+    transition: all 0.3s ease;
+  }
+  
+  h1:hover {
+    font-size: 3.5rem;
+    color: #ffffff;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .navbar ul {
+    display: flex;
+    justify-content: center; /* ให้เมนูอยู่กลาง */
+    list-style: none;
+    padding: 10px;
+    background-color: #ff6600;
+    border-radius: 20px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* ทำให้ navbar อยู่เหนือเนื้อหาทั้งหมด */
+}
+
+  .navbar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+
+  .navbar ul li a:hover {
+    background-color: #ff6600;
+    color: #111;
+    transform: scale(1.1);
+  }
+
+  .profile-photo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto;
+  }
+
+  header, section, footer {
+    width: 90%; /* ใช้ความกว้าง 90% ของหน้าจอ */
+    max-width: 800px; /* จำกัดขนาดสูงสุด */
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #222;
+    border-radius: 20px;
+  }
+  
+  .project {
+    width: 90%; /* ใช้ความกว้าง 90% ของหน้าจอ */
+    max-width: 800px; /* จำกัดขนาดสูงสุด */
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    background-color: #333;
+    border: 1px solid #ff6600;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .project:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  #projects a, #contact a {
+      text-decoration: none;
+      color: inherit; 
+  }
+  
+  #projects a:hover, #contact a:hover {
+      color: #ff6600; 
+  }
+
+  footer {
+    text-align: center;
+    color: #ff6600;
+    background-color: #111;
+    border-radius: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .navbar ul {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 คอลัมน์ในแถวบน */
+      grid-template-rows: auto auto; /* ใช้แถวสองแถว */
+      gap: 10px; /* เพิ่มช่องว่างระหว่างรายการ */
+      padding: 15px 0;
+      width: 100%;
+    }
+
+    .navbar ul li {
+      display: flex;
+      justify-content: center;
+    }
+
+    .navbar ul li a {
+      padding: 15px;
+      font-size: 20px;
+    }
+
+    .profile-photo {
+      width: 120px;
+      height: 120px;
+    }
+
+    header, section, footer {
+      padding: 15px;
+    }
+
+    .project {
+      padding: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .navbar ul {
+      grid-template-columns: repeat(2, 1fr); /* 2 คอลัมน์ในแถวล่าง */
+      padding: 20px 0;
+    }
+  
+    .navbar ul li a {
+      padding: 18px;
+      font-size: 22px;
+    }
+  
+    .profile-photo {
+      width: 100px;
+      height: 100px;
+    }
+  
+    header h1, section h2 {
+      font-size: 1.5rem;
+    }
+  
+    .project {
+      padding: 12px;
+    }
+  }
+  
