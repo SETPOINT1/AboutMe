@@ -392,8 +392,9 @@ main { max-width: 1200px; margin: 0 auto; padding: 96px 20px 120px; }
 .dock a.active span { display: inline; }
 
 /* ============ Reveal ============ */
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
-.reveal.in { opacity: 1; transform: none; }
+.js-ready .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+.js-ready .reveal.in { opacity: 1; transform: none; }
+html:not(.js-ready) .boot { display: none; }
 
 /* ============ Responsive ============ */
 @media (max-width: 980px) {
@@ -426,5 +427,5 @@ main { max-width: 1200px; margin: 0 auto; padding: 96px 20px 120px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
-  .reveal { opacity: 1; transform: none; }
+  .js-ready .reveal { opacity: 1; transform: none; }
 }

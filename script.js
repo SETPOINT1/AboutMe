@@ -1,4 +1,7 @@
 (() => {
+  // Boot screen and fade-in only switch on once this script runs,
+  // so the page stays readable if the script fails to load.
+  document.documentElement.classList.add('js-ready');
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---------- Boot screen (once per session) ---------- */
@@ -53,10 +56,19 @@
   }));
 
   /* ---------- Reveal on scroll ---------- */
-  const revealIO = new IntersectionObserver((entries) => {
-    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); revealIO.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach((el) => revealIO.observe(el));
+  const reveals = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    reveals.forEach((el) => el.classList.add('in'));
+  } else {
+    const revealIO = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); revealIO.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    reveals.forEach((el) => {
+      // Anything already on screen at load shows right away.
+      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in');
+      else revealIO.observe(el);
+    });
+  }
 
   /* ---------- Dock active section + HUD ---------- */
   const dockLinks = document.querySelectorAll('.dock a');
