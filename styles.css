@@ -336,14 +336,19 @@ main { max-width: 1200px; margin: 0 auto; padding: 96px 20px 120px; }
 /* ============ Experience ============ */
 .timeline { list-style: none; margin: 0; padding: 0 0 0 28px; position: relative; display: grid; gap: 16px; }
 .timeline::before { content: ""; position: absolute; left: 8px; top: 10px; bottom: 10px; width: 1.5px; background: var(--line); }
-.timeline li { position: relative; }
-.timeline li::before {
+.timeline > li { position: relative; }
+.timeline > li::before {
   content: ""; position: absolute; left: -26px; top: 32px; width: 12px; height: 12px; border-radius: 50%;
   background: var(--bg); border: 2.5px solid var(--accent);
 }
 .when { font-size: 11px; color: var(--accent); }
 .timeline h3 { font-size: 20px; margin: 6px 0 8px; }
 .timeline p { margin: 0; }
+.job-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+.points { margin: 0 0 14px; padding-left: 18px; }
+.points li { margin-bottom: 6px; }
+.points li::marker { color: var(--accent); }
+.timeline .tags { margin-top: 0; }
 
 /* ============ Awards ============ */
 .award-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
