@@ -345,6 +345,7 @@ main { max-width: 1200px; margin: 0 auto; padding: 96px 20px 120px; }
 .timeline h3 { font-size: 20px; margin: 6px 0 8px; }
 .timeline p { margin: 0; }
 .job-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+.timeline .job-sum { margin: 0 0 8px; color: var(--ink); }
 .points { margin: 0 0 14px; padding-left: 18px; }
 .points li { margin-bottom: 6px; }
 .points li::marker { color: var(--accent); }
